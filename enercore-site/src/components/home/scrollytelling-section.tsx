@@ -15,16 +15,16 @@ function ScrollPanel({
   total: number;
   scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
 }) {
-  const seg   = 1 / total;
+  const seg = 1 / total;
   const start = index * seg;
-  const end   = (index + 1) * seg;
+  const end = (index + 1) * seg;
 
   const opacity = useTransform(
     scrollYProgress,
     [Math.max(0, start - seg * 0.2), start + seg * 0.18, end - seg * 0.18, Math.min(1, end + seg * 0.05)],
     [0, 1, 1, 0],
   );
-  const y     = useTransform(scrollYProgress, [start, end], [50, -50]);
+  const y = useTransform(scrollYProgress, [start, end], [50, -50]);
   const scale = useTransform(scrollYProgress, [start, end], [0.97, 1.02]);
   const lineW = useTransform(scrollYProgress,
     [Math.max(0, start - seg * 0.05), end - seg * 0.1],
@@ -33,7 +33,7 @@ function ScrollPanel({
 
   return (
     <motion.div
-      style={{ opacity }}
+      style={{ opacity, willChange: "opacity" }}
       className="absolute inset-0 flex items-center"
     >
       {/* Background */}
@@ -64,7 +64,7 @@ function ScrollPanel({
 
       {/* Content */}
       <motion.div
-        style={{ y, scale }}
+        style={{ y, scale, willChange: "transform" }}
         className="relative z-10 mx-auto w-full max-w-7xl px-6 md:px-10"
       >
         <div className="max-w-2xl">
@@ -116,8 +116,8 @@ function ScrollPanel({
             key={i}
             className="rounded-full transition-all duration-500"
             style={{
-              width:           i === index ? 6 : 4,
-              height:          i === index ? 6 : 4,
+              width: i === index ? 6 : 4,
+              height: i === index ? 6 : 4,
               backgroundColor: i === index ? panel.accent : "rgba(255,255,255,0.18)",
             }}
           />
@@ -136,7 +136,7 @@ export function ScrollytellingSection() {
 
   return (
     <section ref={containerRef} className="relative bg-[#0e1811]" style={{ height: `${scrollPanels.length * 100}vh` }}>
-      <div className="sticky top-0 h-screen overflow-hidden">
+      <div className="sticky top-0 h-screen overflow-hidden" style={{ willChange: "transform", transform: "translateZ(0)" }}>
         {scrollPanels.map((panel, index) => (
           <ScrollPanel
             key={panel.badge}

@@ -1,29 +1,29 @@
 "use client";
 
 import Lenis from "lenis";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { useAnimationFrame } from "framer-motion";
 
 export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
+  const lenisRef = useRef<Lenis | null>(null);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.1,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
-
-    let rafId: number;
-
-    function raf(time: number) {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    }
-
-    rafId = requestAnimationFrame(raf);
+    lenisRef.current = lenis;
 
     return () => {
-      cancelAnimationFrame(rafId);
       lenis.destroy();
+      lenisRef.current = null;
     };
   }, []);
+
+  // Run Lenis inside Framer Motion's RAF so both read scroll in the same tick
+  useAnimationFrame((time) => {
+    lenisRef.current?.raf(time);
+  });
 
   return <>{children}</>;
 }

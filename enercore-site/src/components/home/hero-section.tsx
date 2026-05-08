@@ -6,7 +6,7 @@ import { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 
 const WORD_VARIANTS = {
-  hidden:  { y: "110%", opacity: 0 },
+  hidden: { y: "110%", opacity: 0 },
   visible: (i: number) => ({
     y: "0%",
     opacity: 1,
@@ -33,10 +33,10 @@ export function HeroSection() {
 
   /* Scroll parallax */
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
-  const contentY       = useTransform(scrollYProgress, [0, 0.5], [0, 50]);
+  const contentY = useTransform(scrollYProgress, [0, 0.5], [0, 50]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.45], [1, 0]);
-  const imageScale     = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
-  const imageY         = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
 
   /* Mouse parallax */
   const mouseX = useMotionValue(0);
@@ -47,14 +47,14 @@ export function HeroSection() {
   const layer1Y = useTransform(smoothY, [-1, 1], [-12, 12]);
   const layer2X = useTransform(smoothX, [-1, 1], [-8, 8]);
   const layer2Y = useTransform(smoothY, [-1, 1], [-5, 5]);
-  const orb1X   = useTransform(smoothX, [-1, 1], [-35, 35]);
-  const orb1Y   = useTransform(smoothY, [-1, 1], [-25, 25]);
-  const orb2X   = useTransform(smoothX, [-1, 1], [25, -25]);
-  const orb2Y   = useTransform(smoothY, [-1, 1], [18, -18]);
+  const orb1X = useTransform(smoothX, [-1, 1], [-35, 35]);
+  const orb1Y = useTransform(smoothY, [-1, 1], [-25, 25]);
+  const orb2X = useTransform(smoothX, [-1, 1], [25, -25]);
+  const orb2Y = useTransform(smoothY, [-1, 1], [18, -18]);
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
-      mouseX.set((e.clientX / window.innerWidth  - 0.5) * 2);
+      mouseX.set((e.clientX / window.innerWidth - 0.5) * 2);
       mouseY.set((e.clientY / window.innerHeight - 0.5) * 2);
     };
     window.addEventListener("mousemove", onMove, { passive: true });
@@ -71,7 +71,7 @@ export function HeroSection() {
         className="absolute inset-0"
         style={{ scale: imageScale, y: imageY }}
       >
-        <div className="ken-burns absolute inset-0">
+        <div className="absolute inset-0" style={{ willChange: "transform" }}>
           <Image
             src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1920&q=80"
             alt=""

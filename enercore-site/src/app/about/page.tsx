@@ -295,7 +295,7 @@ export default function AboutPage() {
                     <TeamIcon name={member.iconName} size={20} />
                   </div>
                   <h3 className="font-heading text-lg font-semibold text-[#1b291f]" style={{ letterSpacing: "-0.02em" }}>{member.name}</h3>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-widest text-[#90c955]">{member.role}</p>
+                  <p className="mt-1 text-xs font-semibold uppercase tracking-widest text-[#274b30]">{member.role}</p>
                   <p className="mt-3 text-sm leading-relaxed text-[#274b30]/65">{member.bio}</p>
                 </div>
               </StaggerItem>

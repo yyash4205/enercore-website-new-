@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { TeamIcon, IconTarget, IconLayers, IconMapPin, IconShield } from "@/components/ui/icons";
-import { team, stats, journey, customers } from "@/lib/site-data";
+import { teamLeadership, teamManagement, stats, journey, customers } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "About",
@@ -251,7 +251,7 @@ export default function AboutPage() {
       {/* Team */}
       <section className="bg-white py-24">
         <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
-          <ScrollReveal className="mb-12 text-center">
+          <ScrollReveal className="mb-14 text-center">
             <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#274b30]/50">Our People</p>
             <h2
               className="font-heading text-4xl font-semibold text-[#1b291f] md:text-5xl"
@@ -259,11 +259,38 @@ export default function AboutPage() {
             >
               The Team Behind the Projects
             </h2>
+            <p className="mt-4 text-sm text-[#274b30]/60 max-w-xl mx-auto leading-relaxed">
+              A dedicated group of energy professionals — from strategic leadership to on-ground execution — unified by a single mission.
+            </p>
+          </ScrollReveal>
+
+          {/* Leadership */}
+          <ScrollReveal className="mb-5">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#274b30]/40">Leadership</p>
+          </ScrollReveal>
+          <StaggerContainer className="grid gap-5 md:grid-cols-3 mb-12">
+            {teamLeadership.map((member) => (
+              <StaggerItem key={member.name}>
+                <div className="card-hover rounded-lg bg-[#1b291f] p-7 h-full">
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-white/8 text-[#ffe55d]">
+                    <TeamIcon name={member.iconName} size={20} />
+                  </div>
+                  <h3 className="font-heading text-lg font-semibold text-white" style={{ letterSpacing: "-0.02em" }}>{member.name}</h3>
+                  <p className="mt-1 text-xs font-semibold uppercase tracking-widest text-[#ffe55d]">{member.role}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-[#8f9c93]">{member.bio}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          {/* Management */}
+          <ScrollReveal className="mb-5">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#274b30]/40">Management Team</p>
           </ScrollReveal>
           <StaggerContainer className="grid gap-5 md:grid-cols-3">
-            {team.map((member) => (
+            {teamManagement.map((member) => (
               <StaggerItem key={member.name}>
-                <div className="card-hover rounded-lg border border-[#d8dbd9]/50 bg-white p-7 shadow-sm">
+                <div className="card-hover rounded-lg border border-[#d8dbd9]/50 bg-white p-7 h-full shadow-sm">
                   <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-[#1b291f]/6 text-[#1b291f]">
                     <TeamIcon name={member.iconName} size={20} />
                   </div>

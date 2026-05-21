@@ -406,46 +406,67 @@ export const customers = [
 export const testimonials = [
   {
     quote:
-      "Enercore understood both the engineering and the commercial reality. Execution clarity was excellent — no surprises, no delays.",
-    author:  "Operations Head",
-    company: "Caparo Maruti India Ltd, Haryana",
+      "Our 450kWp plant at Hella has been running without a single hiccup since commissioning. Enercore managed the full scope — design, installation, and grid sync — without touching our production schedule. Energy costs have dropped sharply.",
+    author:  "Mr. Uday",
+    company: "Plant Head, Hella India Automotive, Haryana",
     rating:  5,
   },
   {
     quote:
-      "We wanted solar savings without capex pressure. Enercore's PPA model gave us exactly that — lower bills from month one.",
-    author:  "Plant Director",
-    company: "Industrial Client, Haryana",
+      "507kWp inside a live automotive facility is not a small ask. Enercore understood our floor constraints, planned around shift timings, and delivered on time. Execution clarity was excellent — no surprises, no delays.",
+    author:  "Mr. Rajesh Ghalawat",
+    company: "Plant Head, Caparo Maruti India Ltd, Haryana",
     rating:  5,
   },
   {
     quote:
-      "From design through operational handover, the process remained structured and transparent. That's rare in this industry.",
-    author:  "Project Manager",
-    company: "Mahagenco, Maharashtra",
+      "Installing a 500kWp system inside a medical manufacturing facility demands zero-error execution. Enercore's structured approach — from detailed design through operational handover — gave us complete confidence at every stage.",
+    author:  "Mr. Sushil Bhardwaj",
+    company: "Plant Head, Hollister Medical",
     rating:  5,
   },
 ];
 
 /* ─── Team ────────────────────────────────────────────────────────────────── */
-export const team = [
+export const teamLeadership = [
   {
-    name:     "Leadership & Strategy",
-    role:     "Director-level ownership",
+    name:     "Mr. Alok Singh",
+    role:     "Chief Executive Officer",
     iconName: "target",
-    bio:      "Cross-functional solar specialists delivering ROI-led energy outcomes for Indian industry. We don't just sell solar — we design financial solutions around it, ensuring every project achieves measurable business impact.",
+    bio:      "Leads Enercore's vision, strategy, and business development — driving the mission to make solar the most reliable energy partner for India's industrial sector.",
   },
   {
-    name:     "Engineering Team",
-    role:     "Design & Technical Delivery",
+    name:     "Mr. Sidhyant Manu",
+    role:     "Director",
+    iconName: "layers",
+    bio:      "Oversees Enercore's operational and financial strategy, ensuring every project is executed with precision, transparency, and long-term value creation.",
+  },
+  {
+    name:     "Mr. Kuldeep Singh",
+    role:     "Honorary Adviser",
+    iconName: "shield",
+    bio:      "Brings decades of domain expertise to guide Enercore's strategic direction and strengthen key industry relationships across the renewable energy sector.",
+  },
+];
+
+export const teamManagement = [
+  {
+    name:     "Mr. Yash Sharma",
+    role:     "Assistant Manager — Technical",
     iconName: "settings",
-    bio:      "Plant designers, PVSyst specialists, and SLD engineers delivering robust, simulation-backed outcomes — from 500 kWp rooftops to 10 MWp utility plants across India.",
+    bio:      "Leads Enercore's technical operations — spanning website and RMS platform development, systems monitoring, and new technology integration — while coordinating the technical team to ensure quality delivery across every project.",
   },
   {
-    name:     "Operations Team",
-    role:     "Asset Performance & O&M",
-    iconName: "wrench",
-    bio:      "On-ground professionals ensuring operational stability, rapid fault response, and long-term generation reliability across every commissioned project.",
+    name:     "Mr. Harshit Saharan",
+    role:     "Assistant Manager — Finance & Procurement",
+    iconName: "briefcase",
+    bio:      "Drives end-to-end procurement and financial operations — from vendor selection, inventory management, and logistics to banking coordination, financial planning, and investor relationship management.",
+  },
+  {
+    name:     "Mr. Siddharth Singh",
+    role:     "Assistant Manager — Asset Development",
+    iconName: "building",
+    bio:      "Oversees solar asset operations from commissioning to long-term performance monitoring — managing on-site execution, DISCOM coordination, quality compliance, and client relationships across all active plants.",
   },
 ];
 

@@ -198,10 +198,23 @@ export function ServiceIcon({ name, size = 24, className }: { name: string } & I
   return <Icon size={size} className={className} />;
 }
 
+export function IconBriefcase({ size = 24, className }: IconProps) {
+  return (
+    <StrokeIcon size={size} className={className}>
+      <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+    </StrokeIcon>
+  );
+}
+
 const TEAM_ICON_MAP: Record<string, React.ComponentType<IconProps>> = {
-  target:   IconTarget,
-  settings: IconSettings,
-  wrench:   IconWrench,
+  target:    IconTarget,
+  settings:  IconSettings,
+  wrench:    IconWrench,
+  layers:    IconLayers,
+  shield:    IconShield,
+  building:  IconBuilding,
+  briefcase: IconBriefcase,
 };
 
 export function TeamIcon({ name, size = 24, className }: { name: string } & IconProps) {

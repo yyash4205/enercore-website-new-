@@ -48,7 +48,7 @@ export function TestimonialsSection() {
                 </p>
                 <footer className="mt-7 flex items-center gap-3 border-t border-white/8 pt-5">
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#ffe55d] text-xs font-bold text-[#1b291f]">
-                    {item.author.charAt(0)}
+                    {item.author.replace(/^(Mr\.|Mrs\.|Ms\.|Dr\.)\s*/i, "").charAt(0)}
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-white">{item.author}</p>

@@ -3,7 +3,8 @@ import Link from "next/link";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { TeamIcon, IconTarget, IconLayers, IconMapPin, IconShield } from "@/components/ui/icons";
-import { teamLeadership, teamManagement, stats, journey, customers } from "@/lib/site-data";
+import { teamLeadership, teamManagement, stats, customers } from "@/lib/site-data";
+import { MilestonesSlider } from "@/components/about/milestones-slider";
 
 export const metadata: Metadata = {
   title: "About",
@@ -177,48 +178,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Journey — dark green */}
-      <section className="bg-[#1b291f] py-24">
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
-          <ScrollReveal className="mb-14">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#ffe55d]">Our Journey</p>
-            <h2
-              className="font-heading text-4xl font-semibold text-white md:text-5xl"
-              style={{ letterSpacing: "-0.03em" }}
-            >
-              Milestones
-            </h2>
-          </ScrollReveal>
-          <div className="relative">
-            <div className="absolute left-4 top-0 bottom-0 w-px bg-white/10 md:left-1/2" />
-            <div className="space-y-10">
-              {journey.map((item, i) => (
-                <div
-                  key={item.date}
-                  className={`relative flex gap-8 md:gap-0 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
-                >
-                  <div className={`ml-10 md:ml-0 md:w-[calc(50%-2rem)] ${i % 2 === 0 ? "md:pr-10 md:text-right" : "md:pl-10"}`}>
-                    <ScrollReveal direction={i % 2 === 0 ? "left" : "right"}>
-                      <div className={`rounded-lg border p-5 ${item.isUpcoming ? "border-[#ffe55d]/25 bg-[#274b30]" : "border-white/8 bg-[#274b30]"}`}>
-                        <span className={`inline-block rounded-full px-3 py-1 text-xs font-semibold mb-2 ${item.isUpcoming ? "bg-[#ffe55d]/15 text-[#ffe55d]" : "bg-white/8 text-[#8f9c93]"}`}>
-                          {item.isUpcoming ? "Upcoming" : "Completed"}
-                        </span>
-                        <p className="font-heading text-xs font-bold text-[#ffe55d] uppercase tracking-widest">{item.date}</p>
-                        <h3 className="mt-1 font-heading text-sm font-semibold text-white" style={{ letterSpacing: "-0.01em" }}>{item.label}</h3>
-                        <p className="mt-1 text-xs text-[#8f9c93] leading-relaxed">{item.description}</p>
-                      </div>
-                    </ScrollReveal>
-                  </div>
-                  <div className="absolute left-4 md:left-1/2 top-5 -translate-x-1/2 flex h-4 w-4 items-center justify-center">
-                    <div className={`h-3 w-3 rounded-full border-2 border-[#1b291f] ${item.isUpcoming ? "bg-[#ffe55d]" : "bg-[#90c955]"}`} />
-                  </div>
-                  <div className="hidden md:block md:w-[calc(50%-2rem)]" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Journey — horizontal milestone slider */}
+      <MilestonesSlider />
 
       {/* Major Customers — warm off-white */}
       <section className="bg-[#fbfaf4] py-20">

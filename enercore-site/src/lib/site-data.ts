@@ -172,13 +172,13 @@ export const projects: Project[] = [
     capacity:    "450 kWp",
     location:    "Gurugram, Haryana",
     state:       "Haryana",
-    serviceType: "CAPEX",
+    serviceType: "OPEX",
     status:      "Completed",
     summary:     "Carport solar generating 788,400 kWh annually — shaded parking plus clean energy for the automotive facility.",
     challenge:
       "The automotive facility needed a solar solution that maximised land use, enhanced employee comfort with shaded parking, and reduced peak demand charges.",
     solution:
-      "Enercore designed and installed a carport solar structure on the existing parking area — utilising existing infrastructure with no additional land requirement under full CAPEX ownership.",
+      "Enercore designed and installed a carport solar structure on the existing parking area — utilising existing infrastructure with no additional land requirement under the OPEX model.",
     outcome:
       "788,400 kWh annual generation. ₹7.88M gross avoided cost, ₹4.57M net annual savings, 646.5 tons CO₂ reduced — equivalent to 30,000+ trees planted annually.",
     bgColor:  "#14532d",

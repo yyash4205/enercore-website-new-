@@ -2,6 +2,7 @@ import { getPostBySlug, getAllPosts } from '@/sanity/queries'
 import { PortableText } from '@portabletext/react'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import BlogPostActions from '@/components/blog/blog-post-actions'
 
 export const revalidate = 60
 
@@ -10,8 +11,9 @@ export async function generateStaticParams() {
   return posts.map((post: any) => ({ slug: post.slug }))
 }
 
-export default async function PostPage({ params }: { params: { slug: string } }) {
-  const post = await getPostBySlug(params.slug)
+export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const post = await getPostBySlug(slug)
 
   if (!post) return notFound()
 
@@ -31,6 +33,9 @@ export default async function PostPage({ params }: { params: { slug: string } })
       <div className="prose prose-invert max-w-none">
         {post.body && <PortableText value={post.body} />}
       </div>
+
+      {/* Like + Share bar */}
+      <BlogPostActions title={post.title} />
     </main>
   )
 }

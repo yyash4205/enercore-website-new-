@@ -1,5 +1,4 @@
 import { defineConfig } from 'sanity'
-import { structuredArrayTypes } from 'sanity/migrate'
 import { deskTool } from 'sanity/desk'
 import post from './src/sanity/schemas/post'
 

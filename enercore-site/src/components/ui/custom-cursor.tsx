@@ -11,10 +11,8 @@ export function CustomCursor() {
   const rawX = useMotionValue(-200);
   const rawY = useMotionValue(-200);
 
-  const dotX = useSpring(rawX, { stiffness: 2000, damping: 120 });
-  const dotY = useSpring(rawY, { stiffness: 2000, damping: 120 });
-  const ringX = useSpring(rawX, { stiffness: 200, damping: 28 });
-  const ringY = useSpring(rawY, { stiffness: 200, damping: 28 });
+  const x = useSpring(rawX, { stiffness: 2000, damping: 120 });
+  const y = useSpring(rawY, { stiffness: 2000, damping: 120 });
 
   useEffect(() => {
     const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
@@ -48,31 +46,42 @@ export function CustomCursor() {
   if (!isDesktop) return null;
 
   return (
-    <>
-      {/* Outer ring */}
-      <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[9998] rounded-full border"
-        style={{ x: ringX, y: ringY, translateX: "-50%", translateY: "-50%" }}
-        animate={{
-          width:  hovering ? 58 : clicking ? 28 : 42,
-          height: hovering ? 58 : clicking ? 28 : 42,
-          borderColor: hovering ? "rgba(255,229,93,0.75)" : "rgba(255,229,93,0.32)",
-          backgroundColor: hovering ? "rgba(255,229,93,0.06)" : "transparent",
-          scale: clicking ? 0.85 : 1,
-        }}
-        transition={{ duration: 0.18, ease: "easeOut" }}
-      />
-      {/* Inner dot */}
-      <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[9999] rounded-full bg-[#ffe55d]"
-        style={{ x: dotX, y: dotY, translateX: "-50%", translateY: "-50%" }}
-        animate={{
-          width:  hovering ? 6 : clicking ? 10 : 7,
-          height: hovering ? 6 : clicking ? 10 : 7,
-          opacity: hovering ? 0.6 : 1,
-        }}
-        transition={{ duration: 0.12 }}
-      />
-    </>
+    <motion.div
+      aria-hidden
+      className="pointer-events-none fixed left-0 top-0 z-[9999] select-none"
+      style={{ x, y }}
+      animate={{ scale: clicking ? 0.82 : hovering ? 1.25 : 1 }}
+      transition={{ duration: 0.12, ease: "easeOut" }}
+    >
+      <svg
+        width="30"
+        height="30"
+        viewBox="0 0 24 24"
+        fill="none"
+        style={{ display: "block", filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.35))" }}
+      >
+        {/* Arrow pointer: dark fill + bright outline = visible on any background */}
+        <path
+          d="M5 3 L19 11.5 L12.2 12.6 L9.6 19 Z"
+          fill="#ffffff"
+          stroke="#000000"
+          strokeWidth="1.6"
+          strokeLinejoin="round"
+        />
+        {/* Click rays — pop in while clicking */}
+        <motion.g
+          stroke="#000000"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          animate={{ opacity: clicking ? 1 : 0, scale: clicking ? 1 : 0.6 }}
+          transition={{ duration: 0.12 }}
+          style={{ transformOrigin: "16px 8px" }}
+        >
+          <line x1="20.5" y1="3.5" x2="22.5" y2="1.5" />
+          <line x1="22.5" y1="8" x2="20" y2="8" />
+          <line x1="20.5" y1="12.5" x2="22.5" y2="14.5" />
+        </motion.g>
+      </svg>
+    </motion.div>
   );
 }

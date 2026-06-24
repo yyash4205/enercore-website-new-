@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@import "tailwindcss";
+
+
 /* ─── Brand tokens ──────────────────────────────────────────────────────────── */
 :root {
   --brand-dark:    #1b291f;
@@ -361,4 +364,48 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+/* ─── Blog prose styles ─────────────────────────────────────────────────────── */
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4 {
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  font-weight: 700;
+  color: #1b291f;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+.blog-content h2 { font-size: 1.75rem; }
+.blog-content h3 { font-size: 1.35rem; }
+.blog-content p {
+  color: #374151;
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+.blog-content ul, .blog-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.blog-content li {
+  color: #374151;
+  line-height: 1.8;
+  margin-bottom: 0.4rem;
+}
+.blog-content strong { color: #1b291f; font-weight: 600; }
+.blog-content a { color: #90c955; text-decoration: none; }
+.blog-content a:hover { text-decoration: underline; }
+.blog-content blockquote {
+  border-left: 4px solid #ffe55d;
+  padding-left: 1rem;
+  color: #6b7280;
+  font-style: italic;
+  margin: 2rem 0;
+}
+.blog-content img {
+  border-radius: 12px;
+  margin: 2rem 0;
+  width: 100%;
 }

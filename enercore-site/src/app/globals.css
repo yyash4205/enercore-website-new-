@@ -404,3 +404,15 @@ body {
   margin: 2rem 0;
   width: 100%;
 }
+/* ─── Blog prose supplements (Markdown-rendered content) ────────────────────────── */
+.blog-content pre {
+  background: #1b291f; color: #e8ede9; border-radius: 12px;
+  padding: 1.25rem; overflow-x: auto; margin: 2rem 0; font-size: 0.9rem;
+}
+.blog-content code { font-family: ui-monospace, monospace; font-size: 0.9em; }
+.blog-content :not(pre) > code { background: #f1f4f0; border-radius: 4px; padding: 0.1rem 0.35rem; color: #274b30; }
+.blog-content table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.95rem; }
+.blog-content th, .blog-content td { border: 1px solid #e2e7e1; padding: 0.6rem 0.8rem; text-align: left; }
+.blog-content th { background: #f1f4f0; font-weight: 600; }
+.blog-content iframe { width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; margin: 2rem 0; border: 0; }
+.blog-content hr { border: none; border-top: 1px solid #e2e7e1; margin: 2.5rem 0; }

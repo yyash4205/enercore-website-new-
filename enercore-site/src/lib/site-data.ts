@@ -342,7 +342,7 @@ export const journey = [
     label:       "Company Formation",
     description: "Enercore New Energy Pvt Ltd incorporated — on a mission to power India's industrial future with clean, reliable solar energy.",
     isUpcoming:  false,
-    image:       "/images/projects/caparo-gate.jpg",
+    image:       "/images/milestones/company-formation.png",
   },
   {
     date:        "Oct 2024",
@@ -439,8 +439,8 @@ export const testimonials = [
 /* ─── Team ────────────────────────────────────────────────────────────────── */
 export const teamLeadership = [
   {
-    name:     "Mr. Alok Singh",
-    role:     "Chief Executive Officer",
+    name:     "Mrs. Uma Singh",
+    role:     "Managing Director",
     iconName: "target",
     bio:      "Leads Enercore's vision, strategy, and business development — driving the mission to make solar the most reliable energy partner for India's industrial sector.",
   },

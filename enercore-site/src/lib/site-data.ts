@@ -451,6 +451,18 @@ export const teamLeadership = [
     bio:      "Oversees Enercore's operational and financial strategy, ensuring every project is executed with precision, transparency, and long-term value creation.",
   },
   {
+    name:     "Mr. Vivek Asthana",
+    role:     "Executive Director — Business Development",
+    iconName: "briefcase",
+    bio:      "Drives Enercore's business development across industrial and commercial segments, building long-term client partnerships and expanding the company's project pipeline.",
+  },
+  {
+    name:     "Mr. Vikram Hans",
+    role:     "Advisor",
+    iconName: "shield",
+    bio:      "Advises Enercore's leadership on strategy and industry best practices, supporting sustainable growth across the renewable energy value chain.",
+  },
+  {
     name:     "Mr. Kuldeep Singh",
     role:     "Honorary Adviser",
     iconName: "shield",

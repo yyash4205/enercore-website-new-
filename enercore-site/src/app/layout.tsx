@@ -5,7 +5,6 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { WhatsAppFloat } from "@/components/ui/whatsapp-float";
 import { Preloader } from "@/components/layout/preloader";
 import { SmoothScrollProvider } from "@/components/layout/smooth-scroll-provider";
-import { ProjectGreenPopup } from "@/components/ui/project-green-popup";
 import "./globals.css";
 
 const inter = Inter({
@@ -60,7 +59,6 @@ export default function RootLayout({
       className={`${inter.variable} ${outfit.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-brand-white text-brand-navy">
-        <ProjectGreenPopup />
         <Preloader />
         <SmoothScrollProvider>
           <SiteHeader />
